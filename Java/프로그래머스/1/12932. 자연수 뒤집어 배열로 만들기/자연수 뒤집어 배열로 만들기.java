@@ -1,6 +1,6 @@
 class Solution {
     public int[] solution(long n) {
-        int len = (""+n).length();
+        int len = String.valueOf(n).length();
         int[] answer = new int[len];
         int cnt = 0;
         
