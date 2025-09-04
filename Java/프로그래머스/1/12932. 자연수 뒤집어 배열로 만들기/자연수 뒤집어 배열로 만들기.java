@@ -2,9 +2,10 @@ class Solution {
     public int[] solution(long n) {
         int len = (""+n).length();
         int[] answer = new int[len];
+        int cnt = 0;
         
-        for(int i=0; i<answer.length; i++) {
-            answer[i] = (int) (n % 10);
+        while(n > 0) {
+            answer[cnt++] = (int) (n % 10);
             n /= 10;
         }
         
