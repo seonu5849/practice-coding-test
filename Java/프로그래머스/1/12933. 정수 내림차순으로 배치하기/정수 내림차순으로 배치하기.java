@@ -11,21 +11,14 @@ class Solution {
             A[i] = Integer.parseInt(str.substring(i, i+1));
         }
         
-        // 선택정렬
+        // 버블정렬
         for(int i=0; i<str.length(); i++) {
-            int max = i;
-            // max값 찾기
             for(int j=i+1; j<str.length(); j++) {
-                if(A[j] > A[max]) {
-                    max = j;
+                if(A[i] < A[j]) {
+                    int temp = A[i];
+                    A[i] = A[j];
+                    A[j] = temp;
                 }
-            }
-            
-            // A[i]가 A[max] 보다 작으면 A[max]를 앞으로 당김 (A[i]와 위치 바꿈.)
-            if(A[i] < A[max]) {
-                int temp = A[i];
-                A[i] = A[max];
-                A[max] = temp;
             }
         }
         
