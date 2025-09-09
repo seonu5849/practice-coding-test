@@ -3,21 +3,16 @@ class Solution {
         boolean answer = true;
 
         String[] arr = s.toUpperCase().split("");
-        int p = 0;
-        int y = 0;
+        int cnt = 0;
         
         for(String str : arr) {
             if("P".equals(str)) {
-                p++;
+                cnt++;
             } else if("Y".equals(str) ){
-                y++;
+                cnt--;
             }
         }
         
-        if(p != y) {
-            answer = false;
-        }
-        
-        return answer;
+        return cnt == 0;
     }
 }
