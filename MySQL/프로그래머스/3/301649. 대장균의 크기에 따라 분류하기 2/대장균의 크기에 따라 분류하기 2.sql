@@ -1,0 +1,16 @@
+-- 코드를 작성해주세요
+SELECT ID
+    , CASE
+        WHEN RN <= TOTAL_CNT * 0.25 THEN 'CRITICAL'
+        WHEN RN <= TOTAL_CNT * 0.5 THEN 'HIGH'
+        WHEN RN <= TOTAL_CNT * 0.75 THEN 'MEDIUM'
+        ELSE 'LOW'
+      END AS 'COLONY_NAME'
+    
+FROM (
+    SELECT ROW_NUMBER() OVER(ORDER BY SIZE_OF_COLONY DESC) RN
+        ,  COUNT(*) OVER() TOTAL_CNT
+        ,  ID
+    FROM ECOLI_DATA
+) X
+ORDER BY ID
