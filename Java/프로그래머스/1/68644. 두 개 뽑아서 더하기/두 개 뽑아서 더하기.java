@@ -2,14 +2,20 @@ import java.util.*;
 import java.util.stream.*;
 
 class Solution {
-    Set<Integer> set = new TreeSet<>();
+    Set<Integer> set = new TreeSet<>(); // 정렬
     boolean[] visited;
     
     public int[] solution(int[] numbers) {
         visited = new boolean[numbers.length];
         dfs(numbers, 0, 0);
         
-        return set.stream().mapToInt(Integer::intValue).toArray();
+        int size = 0;
+        int[] answer = new int[set.size()];
+        for(int num : set) {
+            answer[size++] = num;
+        }
+        
+        return answer;
     }
     
     void dfs(int[] numbers, int start, int depth) {
