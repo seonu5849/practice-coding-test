@@ -2,14 +2,14 @@ import java.util.*;
 import java.util.stream.*;
 
 class Solution {
-    Set<Integer> set = new HashSet<>();
+    Set<Integer> set = new TreeSet<>();
     boolean[] visited;
     
     public int[] solution(int[] numbers) {
         visited = new boolean[numbers.length];
         dfs(numbers, 0, 0);
         
-        return set.stream().sorted().mapToInt(Integer::intValue).toArray();
+        return set.stream().mapToInt(Integer::intValue).toArray();
     }
     
     void dfs(int[] numbers, int start, int depth) {
