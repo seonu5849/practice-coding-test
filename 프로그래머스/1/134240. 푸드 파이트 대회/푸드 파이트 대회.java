@@ -9,7 +9,7 @@ class Solution {
         }
         
         StringBuilder right = new StringBuilder(answer).reverse();
-        
+         
         return answer.append("0").append(right).toString();
     }
 }
