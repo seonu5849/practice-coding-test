@@ -1,27 +1,18 @@
 class Solution {
-    int result = 0;
-    
     public int solution(int a, int b, int n) {
-        recursion(a, b, n);
+        int answer = 0;
         
-        return result;
-    }
-    
-    public void recursion(int a, int b, int n) {
-        if(n < a) {
-            return;
+        while(n >= a) {
+            // 빈병을 가져다 주는 개수
+            int receive = (n / a) * b;
+            
+            // 빈병을 가져다 준 후 받는 개수
+            answer += receive;
+            
+            // 가져다 주고, 받은 개수 + 남은 개수
+            n = receive + (n % a);
         }
-
-        int get = 0;
-        int give = 0;
-        for(int i=1; i<=n; i++) {
-            if(i%a == 0) {
-                get += b; // 몇병마다 b개씩 증가
-                give = i;
-            }
-        }
-
-        result += get;
-        recursion(a, b, n - give + get);
+        
+        return answer;
     }
 }
